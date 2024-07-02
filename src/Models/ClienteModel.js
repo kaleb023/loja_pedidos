@@ -7,8 +7,8 @@ class ClienteModel{
         console.debug("Conectado")
     }
 
-    create(nome_cliente){
-        let sql = `INSERT INTO clientes (nome_cliente) VALUES("${nome_cliente}"); `
+    create(nome_cliente,endereco){
+        let sql = `INSERT INTO clientes (nome_cliente,endereco) VALUES("${nome_cliente}","${endereco}"); `
 
         return new Promise((resolve,reject)=>{
             this.conexao.query(sql,(erro,retorno)=>{
@@ -34,8 +34,8 @@ class ClienteModel{
         });
     }
 
-    update(id_clientes,nome_cliente){
-        let sql = `UPDATE clientes SET nome_cliente="${nome_cliente}" WHERE id_clientes="${id_clientes}";`
+    update(id_clientes,nome_cliente,endereco){
+        let sql = `UPDATE clientes SET nome_cliente="${nome_cliente}",endereco="${endereco}" WHERE id_clientes="${id_clientes}";`
         return new Promise((resolve,reject)=>{
             this.conexao.query(sql,(erro,retorno)=>{
                 if(erro){

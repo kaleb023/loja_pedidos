@@ -8,7 +8,7 @@ class PedidoModel{
     }
 
     create(descricao,valor_t,id_clientes,){
-        let sql = `INSERT INTO pedidos (descricao,valor_t,id_categorias) VALUES("${descricao}","${valor_t}",${id_clientes}"); `
+        let sql = `INSERT INTO pedidos (descricao,valor_t,id_clientes) VALUES("${descricao}","${valor_t}",${id_clientes}"); `
 
         return new Promise((resolve,reject)=>{
             this.conexao.query(sql,(erro,retorno)=>{

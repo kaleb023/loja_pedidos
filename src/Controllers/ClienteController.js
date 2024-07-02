@@ -7,7 +7,8 @@ class ClienteController{
 
     create(req,res){
         const nome_cliente = req.body.nome_cliente
-        ClienteModel.create(nome_cliente).then(
+        const endereco = req.body.endereco
+        ClienteModel.create(nome_cliente,endereco).then(
             resposta =>{
                 console.debug("Cadastrando um cliente!")
                 res.status(resposta[0]).json(resposta[1])
@@ -41,7 +42,8 @@ class ClienteController{
     update(req,res){
         const id_clientes = req.params.id_clientes
         const nome_cliente = req.body.nome_cliente
-        ClienteModel.update(id_clientes,nome_cliente).then(
+        const endereco = req.body.endereco
+        ClienteModel.update(id_clientes,nome_cliente,endereco).then(
             resposta =>{
                 console.debug("Atualizando clientes!")
                 res.status(resposta[0]).json(resposta[1])
